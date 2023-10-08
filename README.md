@@ -4,8 +4,8 @@ Easy reference list of the main changes on PHP from 7.2 to 8.2.
 Atualização 7.2 ao 8.2
 
 PHP 7.2
-> parse_str: informar segundo parâmetro para receber o resultado;
-> number_format: primeiro parâmetro está tipado como float, precisa informar que é float
+- parse_str: informar segundo parâmetro para receber o resultado;
+- number_format: primeiro parâmetro está tipado como float, precisa informar que é float
 > object typehint: parametro object ou returno object, precisa ser objecto
 > (*get_class not null)
 
