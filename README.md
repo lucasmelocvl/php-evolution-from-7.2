@@ -3,13 +3,13 @@ List de referência das principais mudanças do PHP 7.2 até 8.2.
 
 Atualização 7.2 ao 8.2
 
-PHP 7.2
+## PHP 7.2
 - parse_str: informar segundo parâmetro para receber o resultado;
 - number_format: primeiro parâmetro está tipado como float, precisa informar que é float
 - object typehint: parametro object ou returno object, precisa ser objecto
 - (*get_class not null)
 
-PHP 7.3
+## PHP 7.3
 - list: é capaz de tranformar um array em várias variáveis ordenadas, caso não exista a chave no array (ex, zip), uma variável por referencia pode ser usada, quando for adicionado a chave nova no array, a variavel da respectiva chave será setada.
 ```
 $addr = ['Rua X', 54, 'Curitiba'];
@@ -41,7 +41,7 @@ setcookie("CookieB", "HANDCLASS - PHP 7.3", ['expires' =- time() + 3600, 'secure
 - *EOT
 - *is_countable: verifica se uma variável é contável
 
-PHP 7.4
+## PHP 7.4
 - typed properties: possível tipar a propriedade, int, float, string, etc.
 ```
 class Addr
@@ -106,7 +106,7 @@ $arr5 = [...$arr1, ...$arr1]; //[1, 2, 3, 1, 2, 3]
 public function testA($params, ...$params){}
 ```
 
-PHP 8.0
+## PHP 8.0
 - JIT: compilação Just-In-Time: O JIT compila e armazena em cache as instruções
 PS.1 Para web não faz tanta diferença, o impacto maior é quanto uso de alto processamento
 PS.2 Evite usar OPCACHE e JIT em localhost, o cache vai atrapalhar
@@ -203,7 +203,7 @@ var_dump($valor_de_retorno);
 ```
 -*new functions: str_contains e outras funções.
 
-PHP 8.1
+## PHP 8.1
 - enums:
 ```
 // Sem enums
@@ -283,7 +283,7 @@ function myCar(string|(Countable&Stringable) $model) {}
 ```
 -*never return: tipo de retorno para fazer um método que faz um redirecionamento, terá um never ou exit.
 
-PHP 8.2
+## PHP 8.2
 - trait constant: muda o meio de configuração e setup
 ```
 const DB_HOST = "localhost";
