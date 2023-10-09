@@ -1,7 +1,5 @@
 # php-evolution-from-7.2
-Easy reference list of the main changes on PHP from 7.2 to 8.2.
-
-Atualização 7.2 ao 8.2
+List de referência das principais mudanças do PHP 7.2 até 8.2.
 
 Atualização 7.2 ao 8.2
 
@@ -355,3 +353,5 @@ var_dump([
 -*disjoint normal form: única linguagem que implementa 100% ele, a partir do clean ode.
 -*stand-alone types: consegue colocar true, false ou null.
 -*readonly class: classe apenas leitura, exemplo classe API que nao pode mudar a URL, etc.
+
+`agradecimento especial ao Robson V. Leite pela aula na qual baseei minhas anotações e referência das versões 7.2 ao 8.2`
