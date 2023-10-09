@@ -354,4 +354,4 @@ var_dump([
 -*stand-alone types: consegue colocar true, false ou null.
 -*readonly class: classe apenas leitura, exemplo classe API que nao pode mudar a URL, etc.
 
-`agradecimento especial ao Robson V. Leite pela aula na qual baseei minhas anotações e referência das versões 7.2 ao 8.2`
+`Agradecimento especial ao Robson V. Leite pela aula na qual baseei minhas anotações e referência das versões 7.2 ao 8.2`
