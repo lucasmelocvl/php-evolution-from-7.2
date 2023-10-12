@@ -4,13 +4,13 @@ List de referência das principais mudanças do PHP 7.2 até 8.2.
 Atualização 7.2 ao 8.2
 
 ## PHP 7.2
-- parse_str: informar segundo parâmetro para receber o resultado;
-- number_format: primeiro parâmetro está tipado como float, precisa informar que é float
-- object typehint: parametro object ou returno object, precisa ser objecto
+- **parse_str**: informar segundo parâmetro para receber o resultado;
+- **number_format**: primeiro parâmetro está tipado como float, precisa informar que é float
+- **object typehint**: parametro object ou returno object, precisa ser objecto
 - (*get_class not null)
 
 ## PHP 7.3
-- list: é capaz de tranformar um array em várias variáveis ordenadas, caso não exista a chave no array (ex, zip), uma variável por referencia pode ser usada, quando for adicionado a chave nova no array, a variavel da respectiva chave será setada.
+- **list**: é capaz de tranformar um array em várias variáveis ordenadas, caso não exista a chave no array (ex, zip), uma variável por referencia pode ser usada, quando for adicionado a chave nova no array, a variavel da respectiva chave será setada.
 ```
 $addr = ['Rua X', 54, 'Curitiba'];
 list($address, $number, $city, &$state) = $addr; 
@@ -22,7 +22,7 @@ $addr[3] = 'PR';
 var_dump($address, $number, $city, $state); //'Rua X', 54, 'Curitiba', 'PR'
 ```
 
-- compact: realiza um bind de uma string com uma variável de mesmo nome, é obrigatório todas as variáveis passadas existam.
+- **compact**: realiza um bind de uma string com uma variável de mesmo nome, é obrigatório todas as variáveis passadas existam.
 ```
 $name = 'Lucas';
 $email = 'lucas@teste.com.br';
@@ -30,19 +30,19 @@ $userCompact = compact('name','email');
 var_dump($userCompact); // ['name' =- 'Lucas', 'email' =- 'lucas@teste.com.br']
 ```
 
-- setcookie: alteração nos parametros, agora o terceiro parametro é um array de informações, permitindo informar apenas os dados necessarios
+- **setcookie**: alteração nos parametros, agora o terceiro parametro é um array de informações, permitindo informar apenas os dados necessarios
 ```
 setcookie("CookieA", "HANDCLASS - PHP 7.2", time() + 3600, "", "", true);
 setcookie("CookieB", "HANDCLASS - PHP 7.3", ['expires' =- time() + 3600, 'secure' =- true]);
 ```
 
-- *json throw: verifica se o json é válido e dá um throw
-- *array first & last key: pega o primeiro ou ultimo item do array
-- *EOT
-- *is_countable: verifica se uma variável é contável
+- ***json throw**: verifica se o json é válido e dá um throw
+- ***array first & last key**: pega o primeiro ou ultimo item do array
+- ***EOT**
+- ***is_countable**: verifica se uma variável é contável
 
 ## PHP 7.4
-- typed properties: possível tipar a propriedade, int, float, string, etc.
+- **typed properties**: possível tipar a propriedade, int, float, string, etc.
 ```
 class Addr
 {
@@ -62,7 +62,7 @@ class Client extends User
 // Caso queira restringir a conversão automática de string para int (string "30" para int 30), adicionar no começo da aplicação:
 declare(strict_types=1);
 ```
-- arrow functions: na criação de funções anonimas, permite ocultar as chaves e o retorno, além de utilizar variáveis globais;
+- **arrow functions**: na criação de funções anonimas, permite ocultar as chaves e o retorno, além de utilizar variáveis globais;
 ```
 // Sem arrow function, função anonima pura
 $firstName = function(string $fullName) : string {
@@ -80,12 +80,12 @@ $firstName = fn($fullName) => explode(" ", $fullName)[0];
 echo $firstName($fullName); // Lucas Melo
 ```
 
--*reference type: referencia da memória de uma variável, exemplo &$state;
--*underscore num separator: permite adicionar underscore em numeros inteiros no código para auxilia na visibilidade. 
+-***reference type**: referencia da memória de uma variável, exemplo &$state;
+-***underscore num separator**: permite adicionar underscore em numeros inteiros no código para auxilia na visibilidade. 
 ```
 echo 1_000_000; // 1000000
 ```
--*array inside parts: permite adicionar um array dentro de um array, adiciona três pontos no parâmetro, para permitir enviar várias variáveis na chamada da função.
+-***array inside parts**: permite adicionar um array dentro de um array, adiciona três pontos no parâmetro, para permitir enviar várias variáveis na chamada da função.
 ```
 // Using short array syntax.
 // Also, works with array() syntax.
@@ -107,7 +107,7 @@ public function testA($params, ...$params){}
 ```
 
 ## PHP 8.0
-- JIT: compilação Just-In-Time: O JIT compila e armazena em cache as instruções
+- **JIT: compilação Just-In-Time**: O JIT compila e armazena em cache as instruções
 PS.1 Para web não faz tanta diferença, o impacto maior é quanto uso de alto processamento
 PS.2 Evite usar OPCACHE e JIT em localhost, o cache vai atrapalhar
 ```
@@ -116,7 +116,7 @@ opcache.enable=1
 opcache.jit_buffer_size=100M
 ```
 
-- constructor property promotion: não precisa mais declarar as propriedades de uma classe e não precisa associar as propriedades dentro do construtor, basta informar no construtor a tipagem
+- **constructor property promotion**: não precisa mais declarar as propriedades de uma classe e não precisa associar as propriedades dentro do construtor, basta informar no construtor a tipagem
 ```
 // Construtor padrão
 class CarA
@@ -149,7 +149,7 @@ class CarB
 }
 ```
 
-- named params: funçoes, métodos e arrow functions recebem named params. Ao instanciar uma classe ou chamar uma função, é possível pular parâmetros não obrigatórios e informar apenas o parâmetro que deseja utilizar, adicionando o nome da variável:valor.
+- **named params**: funçoes, métodos e arrow functions recebem named params. Ao instanciar uma classe ou chamar uma função, é possível pular parâmetros não obrigatórios e informar apenas o parâmetro que deseja utilizar, adicionando o nome da variável:valor.
 ```
 class CarC
 {
@@ -173,7 +173,7 @@ $car = new CarC('Polo', year:2022);
 ```
 
 
--*union and mixed types: é possível unir tipos, adicionando '|' na tipagem do dado com a respectiva tipagem desejada.
+-***union and mixed types**: é possível unir tipos, adicionando '|' na tipagem do dado com a respectiva tipagem desejada.
 ```
 class CarD
 {
@@ -187,7 +187,7 @@ class CarD
    // Corpo da classe
 }
 ```
--*match: substitui o switch. Ao contrário da switch, ela irá avaliar para um valor assim como as expressões ternárias. Diferente da switch, a comparação é uma verificação de identidade (===) em vez de uma comparação de equalidade fraca (==).
+-***match**: substitui o switch. Ao contrário da switch, ela irá avaliar para um valor assim como as expressões ternárias. Diferente da switch, a comparação é uma verificação de identidade (===) em vez de uma comparação de equalidade fraca (==).
 ```
 <?php
 $comida = 'bolo';
@@ -201,10 +201,10 @@ $valor_de_retorno = match ($comida) {
 var_dump($valor_de_retorno);
 ?>
 ```
--*new functions: str_contains e outras funções.
+-***new functions**: str_contains e outras funções.
 
 ## PHP 8.1
-- enums:
+- **enums**:
 ```
 // Sem enums
 class OrderTest
@@ -275,16 +275,16 @@ var_dump(
 
 ```
 
-- *fibers: forma de processar item um a um, ex: ao enviar uma fila de email, só vai executar um após o outro, ao inves de produzir grande memória e processamento, vai pausando o código.
--*readonly properties: propriedades somente leitura, como um ID que não pode ser modificado após criado no banco de dados;
--*intersection types: permite tipar uma variável usando regras complementares de classes combinadas, exemplo: string OU uma classe que implemente Countable e Stringable (exemplo abaixo).
+- ***fibers**: forma de processar item um a um, ex: ao enviar uma fila de email, só vai executar um após o outro, ao inves de produzir grande memória e processamento, vai pausando o código.
+-***readonly properties**: propriedades somente leitura, como um ID que não pode ser modificado após criado no banco de dados;
+-***intersection types**: permite tipar uma variável usando regras complementares de classes combinadas, exemplo: string OU uma classe que implemente Countable e Stringable (exemplo abaixo).
 ```
 function myCar(string|(Countable&Stringable) $model) {}
 ```
 -*never return: tipo de retorno para fazer um método que faz um redirecionamento, terá um never ou exit.
 
 ## PHP 8.2
-- trait constant: muda o meio de configuração e setup
+- **trait constant**: muda o meio de configuração e setup
 ```
 const DB_HOST = "localhost";
 const DB_NAME = "fsphp";
@@ -322,8 +322,8 @@ class Connect
    }
 }
 ```
--(!) deprecations:
--- Dynamic Properties: criava e atribuía parametros de forma dinamica a uma classe, agora não é mais possível
+-**(!) deprecations**:
+-- **Dynamic Properties**: criava e atribuía parametros de forma dinamica a uma classe, agora não é mais possível
 ``` 
 class House
 {
@@ -337,7 +337,7 @@ var_dump($house);       // "Rua X"
 #[AllowDynamicProperties]
 class House { ... }
 ```
--- UTF8 Encoding e Decoding: descontinuado, trocar por mb_convert_enconding
+-- **UTF8 Encoding e Decoding**: descontinuado, trocar por mb_convert_enconding
 ```
 $string = "Ã à é ô"
 var_dump([
@@ -350,8 +350,8 @@ var_dump([
    mb_convert_enconding($decode, 'ISO-8859-1', 'UTF-8'); // from utf to iso
 ]);
 ```
--*disjoint normal form: única linguagem que implementa 100% ele, a partir do clean ode.
--*stand-alone types: consegue colocar true, false ou null.
--*readonly class: classe apenas leitura, exemplo classe API que nao pode mudar a URL, etc.
+-***disjoint normal form**: única linguagem que implementa 100% ele, a partir do clean ode.
+-***stand-alone types**: consegue colocar true, false ou null.
+-***readonly class**: classe apenas leitura, exemplo classe API que nao pode mudar a URL, etc.
 
 `Agradecimento especial ao Robson V. Leite pela aula na qual baseei minhas anotações e referência das versões 7.2 ao 8.2`
